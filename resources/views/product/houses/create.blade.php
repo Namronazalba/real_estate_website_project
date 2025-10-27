@@ -28,7 +28,7 @@
             </div>
 
             <div>
-                <label class="block font-medium">Price ($)</label>
+                <label class="block font-medium">Price (₱)</label>
                 <input type="number" name="price" class="w-full border rounded-lg p-2" value="{{ old('price') }}" required>
             </div>
 

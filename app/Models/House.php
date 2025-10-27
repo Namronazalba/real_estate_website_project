@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\HouseFeature;
 class House extends Model
 {
     use HasFactory;
@@ -18,4 +18,9 @@ class House extends Model
     'user_id',
     'status',
     ];
+    
+    public function features()
+    {
+        return $this->hasMany(HouseFeature::class);
+    }
 }
