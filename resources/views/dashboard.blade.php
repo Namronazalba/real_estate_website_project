@@ -11,7 +11,14 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
                 </div>
+
+                {{-- 👇 React will render here --}}
+                <div id="app"></div>
             </div>
         </div>
     </div>
+
+
+    @viteReactRefresh
+    @vite('resources/js/app.jsx')
 </x-app-layout>

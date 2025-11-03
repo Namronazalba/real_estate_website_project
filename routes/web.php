@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Product\HouseController;
 use App\Http\Controllers\Product\HouseFeatureController;
 use App\Http\Controllers\ContactController;
+use App\Models\House;
 
 Route::get('/', [HouseController::class, 'welcome'])
     ->middleware('guest')
@@ -40,7 +41,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/houses/{house}/edit', [HouseController::class, 'edit'])->name('houses.edit');
     Route::put('/houses/{house}', [HouseController::class, 'update'])->name('houses.update');
 });
-
+Route::get('/houses-dashboard', function () {
+    return House::select('id', 'title', 'price', 'location', 'image')->get();
+});
 Route::middleware('auth')->group(function (){
     Route::get('/inquiries', [ContactController::class, 'index'])->name('contacts.index');
     Route::get('/contacts/{contact}', [ContactController::class, 'show'])->name('contacts.show');

@@ -14,7 +14,7 @@ class HouseFeatureController extends Controller
         $house = House::findOrFail($houseId);
         $features = $house->features;
 
-        return view('product.houses.inside_features.index', compact('house', 'features'));
+        return view('product.houses.inside_features.admin.index', compact('house', 'features'));
     }
 
     public function store(Request $request, $houseId)
@@ -41,7 +41,7 @@ class HouseFeatureController extends Controller
         $house = House::findOrFail($houseId);
         $features = $house->features;
 
-        return view('product.houses.inside_features.visitor', compact('house', 'features'));
+        return view('product.houses.inside_features.visitor.house-feature', compact('house', 'features'));
     }
 
 }
